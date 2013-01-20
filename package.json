@@ -1,0 +1,36 @@
+{
+  "name": "presspress",
+  "description": "Just trying to make a blog plattform in node real fast",
+  "version": "0.1.0",
+  "homepage": "",
+  "author": {
+    "name": "Andreas Hultgren",
+    "email": "me@andreashultgren.se",
+    "url": "andreashultgren.se"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/app",
+  "engines": {
+    "node": ">= 0.8.15"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "express": "3.0.0rc4",
+    "mongoose": "3.5.x",
+    "passport": "0.1.x",
+    "passport-local": "0.1.x",
+    "jade": "0.28.x",
+    "connect-cachify": "0.0.x"
+  },
+  "devDependencies": {
+    "grunt": "~0.3.11",
+    "grunt-contrib-less": "*"
+  }
+}

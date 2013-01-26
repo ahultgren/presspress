@@ -9,7 +9,7 @@ module.exports = function(grunt) {
       files: ['test/**/*.js']
     },
     lint: {
-      files: ['grunt.js', 'lib/js/*.js', 'test/**/*.js']
+      files: ['grunt.js', 'lib/*.js', 'lib/*/*.js', 'lib/public/js/*.js', 'test/**/*.js']
     },
     less: {
       development: {
@@ -52,7 +52,8 @@ module.exports = function(grunt) {
         node: true
       },
       globals: {
-        exports: true
+        exports: true,
+        window: true // Not sure how to separate node linting from client side linting
       }
     }
   });

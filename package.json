@@ -27,7 +27,8 @@
     "passport": "0.1.x",
     "passport-local": "0.1.x",
     "jade": "0.28.x",
-    "connect-cachify": "0.0.x"
+    "connect-cachify": "0.0.x",
+    "underscore": "1.4.x"
   },
   "devDependencies": {
     "grunt": "~0.3.11",

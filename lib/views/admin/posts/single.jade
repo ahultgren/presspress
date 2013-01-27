@@ -1,0 +1,22 @@
+doctype 5
+html
+  include ../includes/head
+  body
+    .container-fluid
+      .row-fluid
+        include ../includes/sidebar
+        - while (hasPost())
+          - thePost()
+          form.span10(method="POST", action="")
+            .row-fluid
+              h1= title
+            .row-fluid
+              .span9
+                h2 Title
+                input.input-block-level(name="title", placeholder="Today is awesome", value=post.title)
+                h2 Content
+                textarea.input-block-level(name="content")= post.content
+              .span3
+                p Metadata and stuff
+                input(type="hidden", name="id", value=post._id)
+                button.btn(type="submit") #{post._id ? 'Update post' : 'Save post'}

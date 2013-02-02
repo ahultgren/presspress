@@ -7,12 +7,13 @@ html
         include includes/sidebar
         .span10
           .span4
-            h2 Last posts
-            ul
-              li Lorem
-              li Ipsum
-              li Dolor
-              li Sit
+            h2 Latest posts
+            - if (hasPost())
+              ul
+                - while (hasPost())
+                  - thePost()
+                  li
+                    a(href=post.get('url.view'))= post.title
           .span4
             h2 Most popular posts
             ol

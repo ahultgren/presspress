@@ -22,31 +22,26 @@ html
               input.span2(type="password", name="password", placeholder="Password")
               button.btn(type="submit") Sign in
     .container
-      .hero-unit
-        h1 Latest post or something
-        p
-          | This text is prominent.
-        p
-          a.btn.btn-primary.btn-large Learn more »
-      .row
-        .span4
-          h2 Heading
-          p
-            | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-          p
-            a.btn(href='#') View details »
-        .span4
-          h2 Heading
-          p
-            | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-          p
-            a.btn(href='#') View details »
-        .span4
-          h2 Heading
-          p
-            | Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          p
-            a.btn(href='#') View details »
+      - if (hasPost())
+        - thePost()
+        section.hero-unit
+          header
+            h1= post.title
+            p Author: #{post.author.name.full}
+            p Written: #{post._id.getTimestamp()}
+          article
+            p= post.content
+          footer
+            p
+              a.btn.btn-primary.btn-large Read more »
+        - while (hasPost())
+          - thePost()
+            .row
+              .span4
+                h2= post.title
+                p= post.content
+                p
+                  a.btn(href='#') View details »
     hr
     footer
       .container

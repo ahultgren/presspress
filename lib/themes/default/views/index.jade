@@ -26,22 +26,22 @@ html
         - thePost()
         section.hero-unit
           header
-            h1= post.title
+            h1
+              a(href=post.url.view)= post.title
             p Author: #{post.author.name.full}
             p Written: #{post.created('Y-m-d')}
           article
             p= post.content
           footer
             p
-              a.btn.btn-primary.btn-large Read more »
+              a.btn.btn-primary.btn-large(href=post.url.view) Read more »
         - while (hasPost())
           - thePost()
             .row
               .span4
-                h2= post.title
+                h2
+                  a(href=post.url.view)= post.title
                 p= post.content
-                p
-                  a.btn(href='#') View details »
     hr
     footer
       .container

@@ -28,7 +28,7 @@ html
           header
             h1= post.title
             p Author: #{post.author.name.full}
-            p Written: #{post._id.getTimestamp()}
+            p Written: #{post.created('Y-m-d')}
           article
             p= post.content
           footer

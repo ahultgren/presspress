@@ -54,7 +54,9 @@ module.exports = function(grunt) {
       },
       globals: {
         exports: true,
-        window: true // Not sure how to separate node linting from client side linting
+        window: true,
+        document: true,
+        jQuery: true // Not sure how to separate node linting from client side linting
       }
     }
   });
@@ -68,7 +70,9 @@ module.exports = function(grunt) {
 
 module.exports.js = {
   src: [
-    'lib/public/js/bootstrap.js'
+    'lib/public/js/lib/bootstrap.js',
+    'lib/public/js/presspress.js',
+    'lib/public/js/postifier.js'
   ],
   dest: 'lib/public/dist/' + pkg.name + '.js'
 };

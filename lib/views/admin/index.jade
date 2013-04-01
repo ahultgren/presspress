@@ -13,7 +13,11 @@ html
                 - while (hasPost())
                   - thePost()
                   li
-                    a(href=post.get('url.view'))= post.title
+                    a(href=post.url.view)= post.title
+                    | 
+                    a(href=post.url.edit) (Edit)
+                    | 
+                    a(href=post.url.delete, data-method="post") (Delete)
           .span4
             h2 Most popular posts
             ol

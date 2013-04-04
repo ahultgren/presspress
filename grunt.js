@@ -71,8 +71,10 @@ module.exports = function(grunt) {
 module.exports.js = {
   src: [
     'lib/public/js/lib/bootstrap.js',
+    'lib/public/js/lib/showdown.js',
     'lib/public/js/presspress.js',
-    'lib/public/js/postifier.js'
+    'lib/public/js/postifier.js',
+    'lib/public/js/editor.js'
   ],
   dest: 'lib/public/dist/' + pkg.name + '.js'
 };
@@ -81,6 +83,7 @@ module.exports.css = {
   src: [
     'lib/public/css/bootstrap.css',
     'lib/public/css/bootstrap-responsive.css',
+    'lib/public/css/highlight.css',
     'lib/public/dist/presspress.css'
   ],
   dest: 'lib/public/dist/' + pkg.name + '.min.css'

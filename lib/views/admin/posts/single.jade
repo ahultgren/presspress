@@ -15,7 +15,7 @@ html
                 h2 Title
                 input.input-block-level(name="title", placeholder="Today is awesome", value=post.title)
                 h2 Content
-                input(type="hidden", name="content")= post.content
+                input(type="hidden", name="markdown", value=post.markdown)
                 #editor(style="width: 100%; height: 400px; position: relative; border: 1px solid #999;")
                 #preview
               .span3

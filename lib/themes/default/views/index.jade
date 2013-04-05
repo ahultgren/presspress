@@ -31,7 +31,7 @@ html
             p Author: #{post.author.name.full}
             p Written: #{post.created('Y-m-d')}
           article
-            p= post.content
+            != post.content
           footer
             p
               a.btn.btn-primary.btn-large(href=post.url.view) Read more »
@@ -41,7 +41,7 @@ html
               .span4
                 h2
                   a(href=post.url.view)= post.title
-                p= post.content
+                != post.content
     hr
     footer
       .container

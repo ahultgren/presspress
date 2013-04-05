@@ -29,7 +29,8 @@
     "jade": "0.28.x",
     "connect-cachify": "0.0.x",
     "underscore": "1.4.x",
-    "async": "0.2.x"
+    "async": "0.2.x",
+    "showdown": "~0.3.1"
   },
   "devDependencies": {
     "grunt": "~0.3.11",

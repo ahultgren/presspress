@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sitename</title>
+  {{= it.cachify_css('/files/dist/presspress.min.css') }}
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a href="#" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a href="#" class="brand">{{= it.sitename }}</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="active">
+              <a href="#">Home</a>
+            </li>
+          </ul>
+          <form action="/admin/login?redirect=%2f" class="navbar-form pull-right" method="POST">
+            <input type="text" class="span2" name="email" placeholder="Email">
+            <input type="password" class="span2" name="password" placeholder="Password">
+            <button class="btn" type="submit">Sign in</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    {{ if(it.hasPost()) { }}
+      {{ it.thePost(); }}
+      <section class="hero-unit">
+        <header>
+          <h1>
+            <a href="{{= it.post.url.view }}">{{= it.post.title }}</a>
+          </h1>
+            <p>
+              Author: {{= it.post.author.name.full }}
+            </p>
+            <p>
+              Written: {{= it.post.created('Y-m-d') }}
+            </p>
+        </header>
+        <article>
+          {{= it.post.content }}
+        </article>
+      </section>
+      {{ while(it.hasPost()) { }}
+        {{ it.thePost(); }}
+          <div class="row">
+            <div class="span4">
+              <h2>
+                <a href="{{= it.post.url.view }}">{{= it.post.title }}</a>
+              </h2>
+              {{= it.post.content }}
+            </div>
+          </div>
+      {{ } }}
+    {{ } }}
+  </div>
+  <hr>
+  <footer>
+    <div class="container">
+      <p>Something nice</p>
+    </div>
+  </footer>
+  <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+  {{= it.cachify_js('/files/dist/presspress.min.js') }}
+</body>
+</html>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sitename</title>
   {{= it.cachify_css('/files/dist/presspress.min.css') }}
-  <script src="/theme/public/js/main.js"></script>
+  {{= it.head() }}
 </head>
 <body>
   <div class="navbar navbar-inverse navbar-fixed-top">
@@ -70,7 +70,5 @@
       <p>Something nice</p>
     </div>
   </footer>
-  <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
-  {{= it.cachify_js('/files/dist/presspress.min.js') }}
 </body>
 </html>

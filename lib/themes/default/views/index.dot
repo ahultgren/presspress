@@ -70,5 +70,6 @@
       <p>Something nice</p>
     </div>
   </footer>
+  {{= it.foot() }}
 </body>
 </html>

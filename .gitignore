@@ -1,2 +1,4 @@
 node_modules
 lib/public/dist
+lib/themes/default/node_modules
+lib/themes/default/public/dist

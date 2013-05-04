@@ -1,5 +1,72 @@
+@import "variables.less";
+@import "mixins.less";
 @import "banner.less";
 @import "reset.less";
+@import "highlight.less";
 @import "general.less";
 @import "helpers.less";
 @import "print.less";
+
+.wrap {
+  padding: 0 10px;
+}
+
+.head {
+  .title {
+    margin: -55px 0 0 -15px;
+  }
+}
+
+.post {
+  margin-bottom: @fxxL;
+
+  header {
+    margin-bottom: 1em;
+
+    h2 {
+      margin: 0;
+      font-size: @fxxL;
+      line-height: 1;
+      margin-left: -2px;
+    }
+
+    .timestamp {
+      margin: 0.8em 0 0;
+      color: @subtle;
+      text-transform: uppercase;
+    }
+  }
+
+  .entry {
+    > p:first-of-type:not(:last-child) {
+      font-size: @fxM;
+      font-weight: 600;
+      color: @intense;
+    }
+
+    blockquote {
+      border-left: 0.5em solid @primary;
+      margin-left: -1.5em;
+      padding-left: 1em;
+      font-size: @fL;
+    }
+
+    pre {
+      .zebra();
+      max-height: 600px;
+      padding: 0 @fL;
+      margin: 1em -@fL;
+      overflow: auto;
+      white-space: pre;
+      word-wrap: normal;
+
+      code {
+        padding: @fM 0;
+      }
+    }
+
+    :not('pre') code {
+      color: @lowlight;
+    }
+  }
+}

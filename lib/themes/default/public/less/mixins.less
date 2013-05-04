@@ -1,0 +1,20 @@
+.zebra(@innerbg: @pale, @zebrabg: @highlight) {
+  background: @innerbg;
+
+  &::before {
+    content: "";
+    background: @zebrabg;
+    height: inherit;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: -1;
+  }
+}
+
+.transition (@transition) {
+  -webkit-transition: @transition;
+  -moz-transition: @transition;
+  -ms-transition: @transition;
+  -o-transition: @transition;
+}

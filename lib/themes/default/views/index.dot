@@ -7,26 +7,25 @@
   {{= it.head() }}
 </head>
 <body>
-  <header>
-    <h1>Sitename</h1>
+  <header class="head">
+    <h1 class="title">Sitename</h1>
   </header>
-  <section class="wrap">
+  <section class="wrap global-width">
     {{ if(it.hasPost()) { }}
       {{ while(it.hasPost()) { }}
         {{ it.thePost(); }}
-          <article class="entry">
-            <header>
+          <article class="post">
+            <header class="clearfix">
               <h2>
                 <a href="{{= it.post.url.view }}">{{= it.post.title }}</a>
               </h2>
-              <p class="author">
-                {{= it.post.author.name.full }}
-              </p>
               <p class="timestamp">
-                {{= it.post.created('Y-m-d') }}
+                {{= it.post.created('d F, Y') }}
               </p>
             </header>
-            {{= it.post.content }}
+            <section class="entry">
+              {{= it.post.content }}
+            </section>
           </article>
       {{ } }}
     {{ } }}

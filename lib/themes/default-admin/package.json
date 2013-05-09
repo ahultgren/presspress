@@ -1,6 +1,6 @@
 {
-  "name": "presspress-theme-default",
-  "description": "Default presspress theme",
+  "name": "presspress-admin",
+  "description": "Default presspress admin theme",
   "version": "0.0.1",
   "author": {
     "name": "Andreas Hultgren",

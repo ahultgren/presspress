@@ -23,7 +23,7 @@ module.exports = function(grunt) {
         globalstrict: true
       },
       files: {
-        src: ['Gruntfile.js', 'package.json', 'lib/*.js', 'lib/controllers/**/*.js', 'lib/models/**/*.js', 'lib/utils/**/*.js']
+        src: ['Gruntfile.js', 'package.json', 'lib/*.js', 'lib/controllers/**/*.js', 'lib/models/**/*.js', 'lib/utils/**/*.js', 'demo/*.js']
       }
     },
     watch: {

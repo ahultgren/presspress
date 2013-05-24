@@ -12,7 +12,7 @@ var routes = require('./routes');
 exports.info = require('./package.json');
 
 exports.install = function (theme, done) {
-  theme.registerFolder('/public', '/presspress');
+  theme.registerFolder('./public', '/presspress');
 
   routes.forEach(function (route) {
     theme.addRoute({

@@ -24,7 +24,7 @@ exports.info = {
 };
 
 exports.install = function (theme, done) {
-  theme.registerFolder('/public', '/theme/public');
+  theme.registerFolder('./public', '/theme/public');
 
   theme.addRoute({
     method: 'get',

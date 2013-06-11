@@ -28,7 +28,7 @@ app.defaultTheme('./themes/default');
 app.set('db-uri', 'mongodb://localhost/presspress-dev');
 
 app.configure('development', function () {
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+  app.use(express.errorHandler()).as('errorHandler');
 });
 
 

@@ -33,7 +33,7 @@
     "dot": "~1.0.1",
     "urlify": "~0.2.2",
     "monguurl": "0.0.1",
-    "connectr": "git://github.com/olalonde/connectr.git"
+    "connectr": "0.0.4"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

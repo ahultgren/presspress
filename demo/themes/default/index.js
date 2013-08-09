@@ -31,15 +31,10 @@ exports.install = function (theme, done) {
     path: '/',
     view: 'views/index.dot',
     callbacks: [enqueue, function (req, res, next) {
-      mongoose.model('Post')
-        .find({ type: 'post' })
-        .sort({ '_id': -1 })
-        .populate('author')
-        .limit(10)
-        .exec(function (err, posts) {
-          res.data({ posts: posts });
-          next();
-        });
+      presspress.controllers.posts.get(function (err, posts) {
+        res.data({ posts: posts });
+        next();
+      });
     }]
   });
 
@@ -48,13 +43,12 @@ exports.install = function (theme, done) {
     path: '/post/:alias',
     view: 'views/index.dot',
     callbacks: [enqueue, function (req, res, next) {
-      mongoose.model('Post')
-        .findOne({ type: 'post', alias: req.params.alias })
-        .populate('author')
-        .exec(function (err, post) {
-          res.data({ posts: [post] });
-          next();
-        });
+      presspress.controllers.posts.get({}, {
+        alias: req.params.alias
+      }, function (err, posts) {
+        res.data({ posts: posts });
+        next();
+      });
     }]
   });
 };

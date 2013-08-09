@@ -8,10 +8,6 @@ var presspress = module.exports = require('../.'),
     }),
     express = presspress.express;
 
-// Overwrite these properties to support the app being run by any other script
-// For example pm2 or forever
-presspress.basePath = __dirname;
-require.main.exports = presspress;
 
 app.registerTheme('./themes/default');
 app.registerAdminTheme('./themes/default-admin');

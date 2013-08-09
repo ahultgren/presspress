@@ -6,7 +6,7 @@ var passport = require('passport'),
     controllers = main.controllers,
     flow = main.utils.flow;
 
-module.exports = [
+exports.routes = [
   {
     // Login
     path: '/admin/login',
@@ -30,6 +30,12 @@ module.exports = [
     path: '/admin',
     view: 'views/index.jade',
     callbacks: callbacks
+  },
+  {
+    // All posts view
+    path: '/admin/posts',
+    view: 'views/posts/index.jade',
+    callbacks: callbacks.posts.create
   },
   {
     // Create post view
@@ -60,5 +66,26 @@ module.exports = [
     method: 'POST',
     path: '/admin/posts/delete/:id',
     callbacks: callbacks.posts.delete
+  }
+];
+
+exports.pages = [
+  {
+    title: 'Dashboard',
+    path: '/admin'
+  },
+  {
+    title: 'Posts',
+    path: '/admin/posts',
+    children: [
+      {
+        title: 'Edit posts',
+        path: '/admin/posts'
+      },
+      {
+        title: 'Write post',
+        path: '/admin/posts/create'
+      }
+    ]
   }
 ];

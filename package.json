@@ -33,7 +33,9 @@
     "dot": "~1.0.1",
     "urlify": "~0.2.2",
     "monguurl": "0.0.1",
-    "connectr": "0.0.4"
+    "connectr": "0.0.4",
+    "findByPath": "git://github.com/ahultgren/findByPath.git",
+    "reol": "~0.2.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

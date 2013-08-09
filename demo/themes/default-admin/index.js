@@ -6,7 +6,8 @@
  * another theme to extend its functionality.
  */
 
-var routes = require('./routes');
+var routes = require('./routes').routes,
+    pages = require('./routes').pages;
 
 
 exports.info = require('./package.json');
@@ -14,14 +15,39 @@ exports.info = require('./package.json');
 exports.install = function (theme, done) {
   theme.registerFolder('./public', '/presspress');
 
-  routes.forEach(function (route) {
-    theme.addRoute({
-      path: route.path,
-      view: route.view,
-      method: route.method,
-      callbacks: route.callbacks
-    });
+  routes.forEach(addRoute.bind(theme));
+  pages.forEach(function (route) {
+    addPage.call(theme, route);
   });
 
   done();
 };
+
+function addRoute (route) {
+  /*jshint validthis:true*/
+
+  this.addRoute({
+    path: route.path,
+    view: route.view,
+    method: route.method,
+    callbacks: route.callbacks
+  });
+}
+
+function addPage (route, parent) {
+  /*jshint validthis:true*/
+
+  var theme = this,
+      current = theme.admin.addPage({
+        route: route.path,
+        title: route.title,
+        menuTitle: route.menuTitle,
+        parent: parent
+      });
+
+  if(!(current instanceof Error) && route.children) {
+    route.children.forEach(function (route) {
+      addPage.call(theme, route, current);
+    });
+  }
+}

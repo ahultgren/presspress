@@ -26,6 +26,7 @@ app.defaultTheme('./themes/default');
  */
 
 app.set('db-uri', 'mongodb://localhost/presspress-dev');
+app.set('site-url', 'http://localhost:3001');
 
 app.configure('development', function () {
   app.use(express.errorHandler()).as('errorHandler');

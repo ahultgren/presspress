@@ -1,10 +1,10 @@
-doctype 5
+!!!
 html
-  include ../includes/head
+  include ../general/head
   body
     .container-fluid
       .row-fluid
-        include ../includes/sidebar
+        include ../general/sidebar
         - while (hasPost())
           - thePost()
           form.span10(method="POST", action="")
@@ -22,4 +22,4 @@ html
                 p Metadata and stuff
                 input(type="hidden", name="id", value=post._id)
                 button.btn(type="submit") #{post._id ? 'Update post' : 'Save post'}
-    include ../includes/footer
+    include ../general/footer

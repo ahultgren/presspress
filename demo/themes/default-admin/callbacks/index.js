@@ -12,5 +12,3 @@ module.exports = function (req, res, next) {
     next();
   });
 };
-
-module.exports.posts = require('./posts');

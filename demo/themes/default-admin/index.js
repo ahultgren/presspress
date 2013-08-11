@@ -20,6 +20,15 @@ exports.install = function (theme, done) {
     addPage.call(theme, route);
   });
 
+  theme.registerPostType('post', {
+    labels: {
+      singular: 'Post',
+      plural: 'Posts',
+      'View items': 'View posts',
+      'Add item': 'Add post'
+    }
+  });
+
   done();
 };
 

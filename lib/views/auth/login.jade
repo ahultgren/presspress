@@ -1,11 +1,11 @@
 doctype 5
 html
-  include includes/head
+  include ../general/head
   body
     .container
       h1 Log in
       .hero-unit
-        form.form-horizontal(method="POST", action="")
+        form.form-horizontal(method="POST", action="/admin/login/local")
           .control-group
             label.control-label(for="email") E-mail:
             .controls

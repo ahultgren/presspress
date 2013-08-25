@@ -2,6 +2,7 @@
 
 var mongoose = require('mongoose'),
     express = require('express'),
+    async = require('async'),
     path = require('path');
 
 
@@ -31,10 +32,7 @@ exports.install = function (theme, done) {
     path: '/',
     view: 'views/index.dot',
     callbacks: [enqueue, function (req, res, next) {
-      presspress.controllers.posts.get(function (err, posts) {
-        res.data({ posts: posts });
-        next();
-      });
+      presspress.controllers.posts.get(setData(req, res, next));
     }]
   });
 
@@ -45,13 +43,19 @@ exports.install = function (theme, done) {
     callbacks: [enqueue, function (req, res, next) {
       presspress.controllers.posts.get({}, {
         alias: req.params.alias
-      }, function (err, posts) {
-        res.data({ posts: posts });
-        next();
-      });
+      }, setData(req, res, next));
     }]
   });
 };
+
+function setData (req, res, next) {
+  return function (err, posts) {
+    mongoose.model('Settings').getValue('sitetitle', function (err, sitetitle) {
+      res.data({ posts: posts, sitetitle: sitetitle });
+      next();
+    });
+  };
+}
 
 function enqueue (req, res, next) {
   res.enqueueScript({

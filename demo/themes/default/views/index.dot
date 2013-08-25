@@ -3,36 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sitename</title>
+  <title>{{= it.sitetitle }}</title>
   {{= it.head() }}
 </head>
 <body>
-  <header class="head">
-    <h1 class="title">Sitename</h1>
-  </header>
-  <section class="wrap global-width">
-    {{ if(it.hasPost()) { }}
-      {{ while(it.hasPost()) { }}
-        {{ it.thePost(); }}
-          <article class="post">
-            <header class="clearfix">
-              <h2>
-                <a href="{{= it.post.url.view }}">{{= it.post.title }}</a>
-              </h2>
-              <p class="timestamp">
-                {{= it.post.created('d F, Y') }}
-              </p>
-            </header>
-            <section class="entry">
-              {{= it.post.content }}
-            </section>
-          </article>
+  <div class="headWrap">
+    <header class="head">
+      <h1 class="title"><a href="/">{{= it.sitetitle }}</a></h1>
+      <img src="/theme/public/img/me.jpg" width="200" height="200" />
+      <p>
+        I develop. Mostly for the web. Preferably in JavaScript.
+        Currently working for <a href="http://frojd.se">Fröjd</a>.
+      </p>
+      <p>
+        You can find me at:
+        <br><a href="https://twitter.com/andreashultgren">twitter</a>,
+        <br><a href="https://github.com/ahultgren">github</a>, and
+        <br><a href="http://stackoverflow.com/users/1165146/andreas-hultgren">stackoverflow</a>.
+      </p>
+    </header>
+  </div>
+  <div class="mainWrap">
+    <section class="main global-width">
+      {{ if(it.hasPost()) { }}
+        {{ while(it.hasPost()) { }}
+          {{ it.thePost(); }}
+            <article class="post">
+              <header class="clearfix">
+                <h2 class="h">
+                  <a href="{{= it.post.url.view }}">{{= it.post.title }}</a>
+                </h2>
+                <p class="timestamp">
+                  {{= it.post.created('F d, Y') }}
+                </p>
+              </header>
+              <section class="content">
+                {{= it.post.content }}
+              </section>
+            </article>
+        {{ } }}
       {{ } }}
-    {{ } }}
-  </section>
-  <footer>
-    <p>Something nice</p>
-  </footer>
+    </section>
+  </div>
   {{= it.foot() }}
 </body>
 </html>

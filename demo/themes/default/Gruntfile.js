@@ -28,7 +28,10 @@ module.exports = function(grunt) {
         options: {
           strict: true,
           globalstrict: true,
-          node: true
+          node: true,
+          globals: {
+            presspress: true
+          }
         }
       }
     },

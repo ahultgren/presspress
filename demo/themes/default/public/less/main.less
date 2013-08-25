@@ -7,14 +7,46 @@
 @import "helpers.less";
 @import "print.less";
 
-.wrap {
-  padding: 0 10px;
+
+.headWrap {
+  min-height: 1px;
+  width: 300px;
+  padding: 30px;
+  float: left;
 }
 
 .head {
+  background: @pale;
+  width: 300px;
+  padding: 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+
   .title {
-    margin: -55px 0 0 -15px;
+    margin: 0 0 0.5em;
+    line-height: 1.1;
+    font-size: @fxL;
+
+    a {
+      color: @default;
+    }
   }
+
+  img {
+    border: 1px solid @primary;
+    padding: 3px;
+  }
+}
+
+.mainWrap {
+  overflow: hidden;
+}
+
+.main {
+  border-left: 1px solid @lightGray;
+  padding: 30px 40px;
 }
 
 .post {
@@ -23,10 +55,10 @@
   header {
     margin-bottom: 1em;
 
-    h2 {
+    .h {
       margin: 0;
       font-size: @fxxL;
-      line-height: 1;
+      line-height: 1.1;
       margin-left: -2px;
     }
 
@@ -38,7 +70,7 @@
     }
   }
 
-  .entry {
+  .content {
     > p:first-of-type:not(:last-child) {
       font-size: @fxM;
       font-family: @fPreamble;
@@ -46,24 +78,72 @@
       color: @intense;
     }
 
+    ol {
+      counter-reset: generalOl;
+
+      li {
+        position: relative;
+      }
+
+      & > li::before {
+        content: counter(generalOl) + ".";
+        position: absolute;
+        left: -28px;
+
+        color: @primary;
+        counter-increment: generalOl;
+      }
+    }
+
+    ul {
+      li {
+        position: relative;
+      }
+
+      & > li::before {
+        content: "";
+        border-width: 5px 0 5px 9px;
+        border-color: transparent;
+        border-left-color: @primary;
+        border-style: solid;
+        width: 0;
+        height: 1px;
+        position: absolute;
+        top: 9px;
+        left: -25px;
+        border-radius: 4px;
+      }
+    }
+
+    ol, ul {
+      margin-bottom: 0.5em;
+
+      ol, ul {
+        margin-left: 28px;
+      }
+    }
+
     blockquote {
-      border-left: 0.5em solid @primary;
-      margin-left: -1.5em;
-      padding-left: 1em;
+      border-left: 1px solid @primary;
+      margin-left: -41px;
+      padding-left: 41px;
       font-size: @fL;
+      color: @primary;
     }
 
     pre {
-      .zebra();
+      border-left: 1px solid @primary;
       max-height: 600px;
-      padding: 0 @fL;
-      margin: 1em -@fL;
+      margin: 1em 0 1em -41px;
+      padding: 0 0 0 41px;
       overflow: auto;
       white-space: pre;
       word-wrap: normal;
 
       code {
-        padding: @fM 0;
+        padding: 1em 0;
+        font-size: 0.889em;
+        line-height: 1.4;
       }
     }
 

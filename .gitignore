@@ -1,4 +1,4 @@
 node_modules
 lib/public/dist
-lib/themes/default/node_modules
-lib/themes/default/public/dist
+demo/themes/default/public/dist/*
+demo/themes/default-admin/public/dist/*

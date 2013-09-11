@@ -1,0 +1,17 @@
+!!!
+html
+  include ../general/head
+  body
+    .container-fluid
+      .row-fluid
+        include ../general/sidebar
+        form.span10(method="POST", action="", enctype="multipart/form-data")
+          .row-fluid
+            h1= title
+          .row-fluid
+            .span9
+              input(type="file", name="image")
+            .span3
+              p Metadata and stuff
+              button.btn(type="submit") Upload image
+    include ../general/footer

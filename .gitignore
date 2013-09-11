@@ -2,3 +2,4 @@ node_modules
 lib/public/dist
 demo/themes/default/public/dist/*
 demo/themes/default-admin/public/dist/*
+demo/uploads/*

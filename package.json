@@ -20,7 +20,7 @@
   },
   "scripts": {},
   "dependencies": {
-    "express": "3.0.0rc4",
+    "express": "~3.4.0",
     "mongoose": "3.5.x",
     "passport": "0.1.x",
     "passport-local": "0.1.x",
@@ -38,7 +38,9 @@
     "reol": "~0.2.0",
     "callsite": "~1.0.0",
     "bcrypt": "~0.7.6",
-    "hamster": "~0.0.1"
+    "hamster": "~0.0.1",
+    "gm": "~1.13.0",
+    "multiparty": "~2.1.8"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

@@ -7,10 +7,20 @@ html
         include ../general/sidebar
         form.span10(method="POST", action="", enctype="multipart/form-data")
           .row-fluid
-            h1= title
+            h1 Media
           .row-fluid
             .span9
-              input(type="file", name="image")
+              .row-fluid
+                h2 Upload new file
+                input(type="file", name="image")
+              .row-fluid
+                h2 Uploaded files
+                - if (hasPost())
+                  ul
+                    - while(hasPost())
+                      - thePost()
+                      li
+                        a(href=post.meta.original.url)= post.name
             .span3
               p Metadata and stuff
               button.btn(type="submit") Upload image

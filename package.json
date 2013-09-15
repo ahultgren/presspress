@@ -40,7 +40,8 @@
     "bcrypt": "~0.7.6",
     "hamster": "~0.0.1",
     "gm": "~1.13.0",
-    "multiparty": "~2.1.8"
+    "multiparty": "~2.1.8",
+    "send": "~0.1.4"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

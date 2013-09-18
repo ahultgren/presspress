@@ -22,4 +22,8 @@ html
                 p Metadata and stuff
                 input(type="hidden", name="id", value=post._id)
                 button.btn(type="submit") #{post._id ? 'Update post' : 'Save post'}
+
+                div
+                  h2 Featured image
+                  include ../widgets/featured-image
     include ../general/footer

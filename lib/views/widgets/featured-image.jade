@@ -1,0 +1,8 @@
+- if (typeof files !== "undefined")
+  select(name="featuredImage")
+    option(value="") None
+    - for (var i = 0, l = files.length; i < l; i++)
+      if(post.featuredImage + "" === files[i]._id + "")
+        option(value=files[i]._id, selected)= files[i].name
+      else
+        option(value=files[i]._id)= files[i].name

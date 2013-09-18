@@ -20,7 +20,8 @@ html
                     - while(hasPost())
                       - thePost()
                       li
-                        a(href=post.meta.original.url)= post.name
+                        a(href=post.meta.original.url)
+                          img(src=post.meta["200x200_hard"].url)
             .span3
               p Metadata and stuff
               button.btn(type="submit") Upload image

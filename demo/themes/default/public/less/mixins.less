@@ -4,3 +4,17 @@
   -ms-transition: @transition;
   -o-transition: @transition;
 }
+
+.prefixed-transition (@property, @duration, @time) {
+  -webkit-transition: ~"-webkit-@{property}" @duration @time;
+  -moz-transition: ~"-moz-@{property}" @duration @time;
+  -ms-transition: ~"-ms-@{property}" @duration @time;
+  -o-transition: ~"-o-@{property}" @duration @time;
+}
+
+.grayscale (@grayness) {
+  -webkit-filter: grayscale(@grayness);
+  -moz-filter: grayscale(@grayness);
+  -ms-filter: grayscale(@grayness);
+  -o-filter: grayscale(@grayness);
+}

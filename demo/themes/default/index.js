@@ -25,6 +25,8 @@ exports.info = {
 };
 
 exports.install = function (theme, done) {
+  theme.addImageSize('post_header', 1200, 999);
+
   theme.registerFolder('./public', '/theme/public');
 
   theme.addRoute({
@@ -32,7 +34,9 @@ exports.install = function (theme, done) {
     path: '/',
     view: 'views/index.dot',
     callbacks: [enqueue, function (req, res, next) {
-      presspress.controllers.posts.get(setData(req, res, next));
+      presspress.controllers.posts.get({
+        featuredImage: true
+      }, setData(req, res, next));
     }]
   });
 
@@ -41,7 +45,9 @@ exports.install = function (theme, done) {
     path: '/post/:alias',
     view: 'views/index.dot',
     callbacks: [enqueue, function (req, res, next) {
-      presspress.controllers.posts.get({}, {
+      presspress.controllers.posts.get({
+        featuredImage: true
+      }, {
         alias: req.params.alias
       }, setData(req, res, next));
     }]

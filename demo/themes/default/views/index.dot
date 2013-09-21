@@ -12,7 +12,7 @@
       <h1 class="title"><a href="/">{{= it.sitetitle }}</a></h1>
       <img src="/theme/public/img/me.jpg" width="200" height="200" />
       <p>
-        I develop. Mostly for the web. Preferably in JavaScript.
+        I code. Mostly for the web. Preferably in JavaScript.
         Currently working for <a href="http://frojd.se">Fröjd</a>.
       </p>
       <p>
@@ -24,20 +24,26 @@
     </header>
   </div>
   <div class="mainWrap">
-    <section class="main global-width">
+    <section class="main">
       {{ if(it.hasPost()) { }}
         {{ while(it.hasPost()) { }}
           {{ it.thePost(); }}
             <article class="post">
               <header class="clearfix">
-                <h2 class="h">
+                {{ var hasFI = it.hasPostThumbnail("post_header"); }}
+                {{ if(hasFI){ }}
+                  <figure>
+                    {{= it.thePostThumbnail("post_header") }}
+                  </figure>
+                {{ } }}
+                <h2 class="h {{= (hasFI && "featured" || "") }}">
                   <a href="{{= it.post.url.view }}">{{= it.post.title }}</a>
                 </h2>
                 <p class="timestamp">
                   {{= it.post.created('F d, Y') }}
                 </p>
               </header>
-              <section class="content">
+              <section class="content global-width">
                 {{= it.post.content }}
               </section>
             </article>
